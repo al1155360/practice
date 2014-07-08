@@ -1,7 +1,7 @@
-h1{
+h1 {
   text-align: center;
   color: #00f;
-  p{
-    color: #0f0;
-  }
+}
+h1 p {
+  color: #f00;
 }
