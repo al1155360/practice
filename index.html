@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-   <!-- <link rel="stylesheet" type="text/css" href="style/main.css">-->
-    <script data-main="src/js/main.js" src="src/lib/require.js"></script>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style/main.css">
+	<script data-main="js/main.js" src="js/lib/require.js"></script>
 </head>
 <body>
+	<table class = 'mainTable'>
+		<tr>
+			<td class = 'editor'>
+				<div class = 'listContainer'></div>
+				<button id='add'>+</button>
 
+			</td>
+			<td class = 'map'></td>
+		</tr>
+	</table>
+
+	<div style="visibility:hidden" class = 'message'>
+		<input id = 'title' placeholder="Заголовок">
+		<br/>
+		<input id = 'startDate' placeholder="Дата начала">
+		<input id = 'endDate' placeholder="Дата окончания">
+		<br/>
+		<textarea id = 'message'placeholder="Описание"></textarea>
+		<br/>
+		<button id = 'save'>Сохранить</button>
+		<button id = 'cancel'>Отмена</button>
+		<button id = 'delete' style="visibility:hidden">Удалить</button>
+	</div>
 </body>
 </html>

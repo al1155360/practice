@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+  color: #00f;
+}
+h1 p {
+  color: #f00;
+}
+
+.mainDiv {
+  background-color: #eee;
+}
+
+.editor {
+  background-color: #cee;
+}
+
+.message {
+  background-color: #ce0;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  width: 450px;
+  height: 200px;
+  position: absolute;
+  margin-top: -100px;
+  margin-left: -225px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -khtml-border-radius: 15px;
+}
+
+rect {
+  fill: skyblue;
+  stroke: steelblue;
+  stroke-width: 1;
+  opacity: 0.8;
+  rx: '50';
+  ry: '20';
+}
+
+line {
+  stroke-width: 1;
+  stroke: black;
+}
+
+#event {
+  position: relative;
+  left: 40;
+  top: 50;
+}
