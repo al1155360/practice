@@ -2,9 +2,9 @@ define(function(require) {
     'use strict';
 
     var d3 = require('d3'),
-        conf = require('config'),
+        config = require('config'),
         i18n = require('i18n'),
-        events = require('eventManager');
+        eventManager = require('eventManager');
 
     return {
 
@@ -17,12 +17,12 @@ define(function(require) {
                 message: $('#message').val()
 
             };
-            events.addEvent(currentEvent);
+            eventManager.addEvent(currentEvent);
         },
 
         displayEvents: function() {
             var me = this,
-                data = events.get(),
+                data = eventManager.get(),
                 dObject = d3.select('.listContainer')
                 .selectAll('p')
                 .data(data);
@@ -32,11 +32,12 @@ define(function(require) {
                     var current = _.find(data, function(dataCurrent) {
                         return d.id === dataCurrent.id;
 
-                    });
+                    }),
 
-                    var $deleteButton = $('#delete');
+                     $deleteButton = $('#delete'),
+                     $messageBox = $('.message');
 
-                    $('.message').css('visibility', 'visible');
+                    $messageBox.css('visibility', 'visible');
                     $deleteButton.css('visibility', 'visible');
                     $('#title').val(current.title);
                     $('#startDate').val(current.startDate);
@@ -45,8 +46,8 @@ define(function(require) {
 
                     $deleteButton.unbind('click');
                     $deleteButton.click(function() {
-                        events.delete(i);
-                        $('.message').css('visibility', 'hidden');
+                        eventManager.delete(i);
+                        $messageBox.css('visibility', 'hidden');
                         $deleteButton.css('visibility', 'hidden');
                         me.displayEvents();
                     });
@@ -54,8 +55,8 @@ define(function(require) {
                 })
                 .text(function(d, i) {
                     return (i + 1) + ' ' + d.title + ' ' +
-                        moment(d.startDate).format(conf.formatDate) + ' - ' +
-                        moment(d.endDate).format(conf.formatDate);
+                        moment(d.startDate).format(config.formatDate) + ' - ' +
+                        moment(d.endDate).format(config.formatDate);
                 })
                 .attr('id', function(d, i) {
                     return d.id;

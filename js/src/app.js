@@ -3,15 +3,17 @@ define(function(require) {
 
     var d3 = require('d3'),
 
-        events = require('eventManager'),
-        hew = require('hewManager');
+        eventManager = require('eventManager'),
+        hewManager = require('viewManager');
 
 
     return {
         start: function() {
             var WIDTH = innerWidth,
                 HEIGHT = innerHeight,
-                main = d3.select('.map');
+                main = d3.select('.map'),
+                $deleteButton = $('#delete'),
+                $messageBox = $('.message');
 
             main
                 .style('width', ((WIDTH - 30) / 2 + 'px'))
@@ -23,26 +25,26 @@ define(function(require) {
                 .attr('width', (WIDTH - 30) / 2 + 'px')
                 .attr('height', (HEIGHT - 30) / 2 + 'px');
 
-            hew.displayEvents();
+            hewManager.displayEvents();
 
-            hew.displayMap((WIDTH) / 2, HEIGHT);
+            hewManager.displayMap((WIDTH) / 2, HEIGHT);
 
 
 
             $('#add').click(function() {
                 // debugger;
-                $('.message').css('visibility', 'visible');
-                $('#delete').css('visibility', 'hidden');
+                $messageBox.css('visibility', 'visible');
+                $deleteButton.css('visibility', 'hidden');
             });
             $('#cancel').click(function() {
-                $('.message').css('visibility', 'hidden');
-                $('#delete').css('visibility', 'hidden');
+                $messageBox.css('visibility', 'hidden');
+                $deleteButton.css('visibility', 'hidden');
             });
             $('#save').click(function() {
-                hew.addRecord();
-                $('.message').css('visibility', 'hidden');
-                $('#delete').css('visibility', 'hidden');
-                hew.displayEvents();
+                hewManager.addRecord();
+                $messageBox.css('visibility', 'hidden');
+                $deleteButton.css('visibility', 'hidden');
+                hewManager.displayEvents();
             });
 
         }
