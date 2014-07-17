@@ -11,23 +11,25 @@ define(function(require) {
         start: function() {
             var WIDTH = innerWidth,
                 HEIGHT = innerHeight,
+                indent = 30,
+                partition = 1/2,
                 main = d3.select('.map'),
                 $deleteButton = $('#delete'),
                 $messageBox = $('.message');
 
             main
-                .style('width', ((WIDTH - 30) / 2 + 'px'))
-                .style('height', (HEIGHT - 30) + 'px');
+                .style('width', ((WIDTH - indent) *partition + 'px'))
+                .style('height', (HEIGHT - indent) + 'px');
 
 
             d3
                 .select('.editor')
-                .attr('width', (WIDTH - 30) / 2 + 'px')
-                .attr('height', (HEIGHT - 30) / 2 + 'px');
+                .attr('width', (WIDTH - indent) *partition + 'px')
+                .attr('height', (HEIGHT - indent) *partition + 'px');
 
             hewManager.displayEvents();
 
-            hewManager.displayMap((WIDTH) / 2, HEIGHT);
+            hewManager.displayMap((WIDTH-indent) *partition, HEIGHT-indent);
 
 
 

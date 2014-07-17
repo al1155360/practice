@@ -70,13 +70,17 @@ define(function(require) {
         },
         displayMap: function(WIDTH, HEIGHT) {
             var
+                countOfHours = 25,
+                widthOfTime = 50,
+                step = 2,
                 main = d3.select('.map'),
                 start = 'March 8 2011',
                 first = d3.time.day.round(d3.time.day.offset(new Date(2014, 2, 3, 13, 0, 0), 0)),
                 last = d3.time.day.round(d3.time.day.offset(new Date(2014, 2, 3, 13, 0, 0), 1)),
                 format = d3.time.format(i18n.formatTime), //                                                      ?????
-                time = d3.time.hour.range(first, last, 2),
+                time = d3.time.hour.range(first, last, step),
                 svg = main.append('svg');
+                 // indent = 0;
             svg.selectAll('text')
                 .data(time)
                 .enter()
@@ -86,27 +90,27 @@ define(function(require) {
                 })
                 .attr('x', 5)
                 .attr('y', function(d, i) {
-                    return (HEIGHT - 35) * (i * 2 + 1) / 25;
+                    return (HEIGHT) * (i * step + 1) / countOfHours;
                 });
             svg
                 .selectAll('line')
                 .data(time)
                 .enter()
                 .append('line')
-                .attr('x1', 50)
+                .attr('x1', widthOfTime)
                 .attr('y1', function(d, i) {
-                    return (HEIGHT - 35) * (i * 2 + 1) / 25;
+                    return (HEIGHT) * (i * step + 1) / countOfHours;
                 })
-                .attr('x2', WIDTH - 30)
+                .attr('x2', WIDTH )//
                 .attr('y2', function(d, i) {
-                    return (HEIGHT - 35) * (i * 2 + 1) / 25;
+                    return (HEIGHT) * (i * step + 1) / countOfHours;
                 });
             svg
                 .append('line')
-                .attr('x1', 50)
+                .attr('x1', widthOfTime)
                 .attr('y1', 0)
-                .attr('x2', 50)
-                .attr('y2', HEIGHT - 30);
+                .attr('x2', widthOfTime)
+                .attr('y2', HEIGHT);//
         }
 
     };
