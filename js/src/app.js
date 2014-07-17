@@ -17,15 +17,15 @@ define(function(require) {
                 $deleteButton = $('#delete'),
                 $messageBox = $('.message');
 
-            main
-                .style('width', ((WIDTH - indent) *partition + 'px'))
-                .style('height', (HEIGHT - indent) + 'px');
+            // // main
+            //     .style('width', ((WIDTH - indent) *partition + 'px'))
+            //     .style('height', (HEIGHT - indent) + 'px');
 
 
             d3
-                .select('.editor')
-                .attr('width', (WIDTH - indent) *partition + 'px')
-                .attr('height', (HEIGHT - indent) *partition + 'px');
+                .select('.editor');
+                // .attr('width', (WIDTH - indent) *partition + 'px')
+                // .attr('height', (HEIGHT - indent) *partition + 'px');
 
             hewManager.displayEvents();
 

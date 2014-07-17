@@ -9,11 +9,26 @@ h1{
 .mainDiv{
 	background-color: #eee;
 }
+
+.myCont{
+	display: flex;
+	display: -webkit-flex;
+
 .editor{
 	background-color: #cee;	
+	text-align: left;
+	flex: 1;
+	width:50%;
 }
-.message{
+.map{
+	text-align: right;
+	background-color: #cac;	
+	width:50%;
+}
+}
 
+.message{
+	//position: relative; 
 	background-color: #ce0;
 	width: 400px;
 	top: 50%; 

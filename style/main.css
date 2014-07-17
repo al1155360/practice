@@ -10,8 +10,20 @@ h1 p {
   background-color: #eee;
 }
 
-.editor {
+.myCont {
+  display: flex;
+  display: -webkit-flex;
+}
+.myCont .editor {
   background-color: #cee;
+  text-align: left;
+  flex: 1;
+  width: 50%;
+}
+.myCont .map {
+  text-align: right;
+  background-color: #cac;
+  width: 50%;
 }
 
 .message {
